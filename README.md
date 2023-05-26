@@ -1,144 +1,73 @@
-<div align="center">
-	<img src="https://img-blog.csdnimg.cn/9efd5420327a46b7bd6d93524a97229d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbHl0LXRvcA==,size_14,color_FFFFFF,t_70,g_se,x_16">
-	<p align="center">
-		<a href="https://v3.vuejs.org/" target="_blank">
-			<img src="https://img.shields.io/badge/vue.js-vue3.x-green" alt="vue">
-		</a>
-		<a href="https://element-plus.gitee.io/#/zh-CN/component/changelog" target="_blank">
-			<img src="https://img.shields.io/badge/element--plus-%3E1.0.0-blue" alt="element plus">
-		</a>
-		<a href="https://www.tslang.cn/" target="_blank">
-	    <img src="https://img.shields.io/badge/typescript-%3E4.0.0-blue" alt="typescript">
-	  </a>
-		<a href="https://vitejs.dev/" target="_blank">
-		  <img src="https://img.shields.io/badge/vite-%3E2.0.0-yellow" alt="vite">
-		</a>
-		<a href="https://gitee.com/lyt-top/vue-next-admin/blob/master/LICENSE" target="_blank">
-		  <img src="https://img.shields.io/badge/license-MIT-success" alt="license">
-		</a>
-	</p>
-	<p>&nbsp;</p>
-</div>
+# stark-vue-next-admin 
+forked from https://github.com/lyt-Top/vue-next-admin , 基于vue3.x 、Typescript、vite、Element plus等，适配手机、平板、pc 的后台开源免费模板库
 
-#### 💝 长期赞助商
+# 代码仓库  
+https://github.com/StarksJohn/stark-vue-next-admin
 
-<a href="http://www.ccflow.org/" target="_blank">
-	<img src="./src/assets/ccflowRightNextAdmin.png" width="50%" height="70px">
-</a>
+# 开发指南 
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/introduce/
 
-#### 🌈 介绍
+# 项目node版本号:
+![](readMeImg/QQ20230329-111301@2x.png)
 
-基于 vue3.x + CompositionAPI setup 语法糖 + typescript + vite + element plus + vue-router-next + pinia 技术，适配手机、平板、pc 的后台开源免费模板，希望减少工作量，帮助大家实现快速开发。
+# 分支说明
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/install/#%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81%E5%90%84%E5%88%86%E6%94%AF%E8%AF%B4%E6%98%8E-%E5%90%8E%E7%BB%AD%E5%B0%86%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E5%88%86%E6%94%AF
+1. master (基于 vue3.x、vite、ts、Element plus等，主项目模板)
+2. VUE3_TS:因此项目部署在 https://code.cxaone.cn/stark.zhang/boheAuth 项目,故 此分支用于在 boheAuth 项目里 测试部署代码
 
-#### ⛱️ 线上预览
+# 项目搭建
+1. npm install
+2. 配置 vite 
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/fast/#%E9%85%8D%E7%BD%AE-vite
+3. 安装 typescript
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/fast/#%E5%AE%89%E8%A3%85-typescript
+4. 安装 element-plus
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/fast/#%E5%AE%89%E8%A3%85-element-plus
+5. 配置目录别名 @
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/fast/#_2-%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95%E5%88%AB%E5%90%8D-%E6%96%B9%E4%BE%BF%E5%BC%95%E7%94%A8
+6. 安装 vue-router-next 
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/fast/#%E5%AE%89%E8%A3%85-vue-router-next
+7. 配置eslint
+https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/eslint/#eslint
+    坑: 由于  this.options.parse is not a function  这个报错 暂时无法解决, 故暂停用 eslint
 
-- vue3.x 版本预览（vue-next-admin）<a href="https://lyt-top.gitee.io/vue-next-admin-preview/#/login" target="_blank">https://lyt-top.gitee.io/vue-next-admin-preview/#/login</a>
-- vue2.x 版本预览（vue-prev-admin）<a href="https://lyt-top.gitee.io/vue-prev-admin-preview/#/login" target="_blank">https://lyt-top.gitee.io/vue-prev-admin-preview/#/login</a>
-- vue3.x + uni-app 商城 H5（vue-next-admin-shop）<a href="https://lyt-top.gitee.io/vue-next-admin-shop-preview" target="_blank">https://lyt-top.gitee.io/vue-next-admin-shop-preview</a>
+# UAT
+   1. debug:
+        npm run dev:uat     (use env.debug_uat file)
+   2. release :
+        本地打包+预览: (成功)
+            https://lyt-top.gitee.io/vue-next-admin-doc-preview/config/build/#%E9%A2%84%E8%A7%88
+            1 根目录 .env.release_uat 文件中的 VITE_PUBLIC_PATH 置空
+            2 npm install -g http-server
+            3 在 package.json 中添加脚本 "serve": "http-server ./dist"
+            4 本地打包 npm run build:uat  (use env.release_uat file)
+            4 项目根目录运行  npm run serve
+   3. jenkins :在 boheAuth 项目的 VUE3_TS 分支: 
+      1. 改 .env.release_uat 文件的 VITE_PUBLIC_PATH 为 "https://uat-boheauth.cxaone.cn/"
+      2. 打包: 在 https://jen.cxaone.cn/view/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/job/FrontBuildDockerImage/build?delay=0sec 打包  
+         1. project : boheauth
+         2. branch : VUE3_TS
+         3. docker_image_tag: VUE3_TS_xxxx   (不要带:  或者  + ) 不勾选 MergeMaster
+         4. NodeVersion : V16.14.0
+         5. INSTALL_COMMAND_ACTIVE : npm install --unsafe-perm=true --allow-root
+         6. BUILD_COMMAND_ACTIVE : npm run build:uat
+            1. 坑: 
+                1. permission denied, open '/home/jenkins/agent/workspace/package_image/node_modules/vue-demi/lib/index
+                                解: http://www.manongjc.com/detail/64-rwkgrgylhzhtfyo.html 
+                                INSTALL_COMMAND_ACTIVE 使用 npm install --unsafe-perm=true --allow-root
+                2. failed to load config from /home/jenkins/agent/workspace/package_image/vite.config.ts
+                                解: 项目node版本 升级到 v16.14.0 
+                3. invalid argument " " for "-t, --tag" flag: invalid reference format
+                                解: 分支名不能带 +  号,  改成 VUE3_TS
+                4. 打包流程很慢, 主要是 编译代码 阶段 慢, 大概 半小时 ,如 
+                   1. 解: 和刘广沟通后,发现是 设置npm缓存卡住了，他把这个步骤去掉了就好了
+      3. 部署: 在 https://jen.cxaone.cn/view/deploy/job/Deploy-hw-all/ 里
+                       PushType: image
+                       keywords_active: 打包出来的完整镜像
+                       Deploy: yes
+                       DeployEnv: uat
+      4. 访问 https://uat-boheauth.cxaone.cn/
+            
 
-#### 💒 代码仓库
-
-- vue3.x 版本 <a href="https://gitee.com/lyt-top/vue-next-admin" target="_blank">https://gitee.com/lyt-top/vue-next-admin</a>
-- vue2.x 版本 <a href="https://gitee.com/lyt-top/vue-next-admin/tree/vue-prev-admin" target="_blank">https://gitee.com/lyt-top/vue-next-admin/tree/vue-prev-admin</a>
-
-#### 🚧 安装 cnpm、yarn
-
-- 复制代码(桌面 cmd 运行) `npm install -g cnpm --registry=https://registry.npm.taobao.org`
-- 复制代码(桌面 cmd 运行) `npm install -g yarn`
-
-#### 🏭 环境支持
-
-| Edge      | Firefox      | Chrome      | Safari      |
-| --------- | ------------ | ----------- | ----------- |
-| Edge ≥ 88 | Firefox ≥ 78 | Chrome ≥ 87 | Safari ≥ 13 |
-
-> 由于 Vue3 不再支持 IE11，故而 ElementPlus 也不支持 IE11 及之前版本。
-
-#### ⚡ 使用说明
-
-建议使用 cnpm，因为 yarn 有时会报错。<a href="http://nodejs.cn/" target="_blank">node 版本 > 14.18+/16+</a>
-
-> Vite 不再支持 Node 12 / 13 / 15，因为上述版本已经进入了 EOL 阶段。现在你必须使用 Node 14.18+ / 16+ 版本。
-
-```bash
-# 克隆项目
-git clone https://gitee.com/lyt-top/vue-next-admin.git
-
-# 进入项目
-cd vue-next-admin
-
-# 安装依赖
-cnpm install
-
-# 运行项目
-cnpm run dev
-
-# 打包发布
-cnpm run build
-```
-
-#### 📚 开发文档
-
-- 查看开发文档：<a href="https://lyt-top.gitee.io/vue-next-admin-doc-preview" target="_blank">vue-next-admin-doc</a>
-
-#### 💯 学习交流加 QQ 群
-
-> 1 - 4 交流群已满，请加 vue-next-admin 交流群 5
-
-群号：556254895
-
-其它交流群请查看文档首页 [vueNextAdmin 解疑问](https://lyt-top.gitee.io/vue-next-admin-doc-preview/)
-
-#### 💒 集成后端
-
-- <a target="_blank" href="https://github.com/PandaGoAdmin/PandaX">@熊猫 PandaGoAdmin</a>
-- <a target="_blank" href="https://toscode.gitee.com/GionConnection/gopro_free">@甜蜜蜜 GoPro 平台</a>
-- <a target="_blank" href="https://gitee.com/GionConnection/niupi-free">@甜蜜蜜 NiuPi 平台</a>
-- <a target="_blank" href="https://gitee.com/tiger1103/gfast/tree/os-v3/">@游子 GFast-V3</a>
-- <a target="_blank" href="https://gitee.com/diygw/diygw-ui-php/">@diygw.com gw-ui-php</a>
-- <a target="_blank" href="https://gitee.com/zsvg/vboot-net">@zsvg vboot-net</a>
-- <a target="_blank" href="https://gitee.com/zsvg/vboot-java">@zsvg vboot-java</a>
-- <a target="_blank" href="https://gitee.com/wonderful-code/buildadmin">@青红造了个白 buildadmin</a>
-- <a target="_blank" href="https://github.com/xiaodingding/iotfast">@Goodwell iotfast(一个开源的物联网平台)</a>
-
-#### ❤️ 鸣谢列表
-
-- <a href="https://github.com/vuejs/vue" target="_blank">vue</a>
-- <a href="https://github.com/vuejs/vue-next" target="_blank">vue-next</a>
-- <a href="https://github.com/ElemeFE/element" target="_blank">element-ui</a>
-- <a href="https://github.com/element-plus/element-plus" target="_blank">element-plus</a>
-- <a href="https://github.com/vuejs/vue-router-next" target="_blank">vue-router-next</a>
-- <a href="https://github.com/vuejs/pinia" target="_blank">pinia</a>
-- <a href="https://github.com/apache/echarts" target="_blank">echarts</a>
-- <a href="https://github.com/axios/axios" target="_blank">axios</a>
-- <a href="https://github.com/zenorocha/clipboard.js" target="_blank">clipboard</a>
-- <a href="https://github.com/inorganik/countUp.js" target="_blank">countUp</a>
-- <a href="https://github.com/developit/mitt" target="_blank">mitt</a>
-- <a href="https://github.com/rstacruz/nprogress" target="_blank">nprogress</a>
-- <a href="https://github.com/sindresorhus/screenfull.js" target="_blank">screenfull</a>
-- <a href="https://github.com/SortableJS/Sortable" target="_blank">sortablejs</a>
-- <a href="https://github.com/sass/sass" target="_blank">sass</a>
-- <a href="https://github.com/microsoft/TypeScript" target="_blank">typescript</a>
-- <a href="https://github.com/vitejs/vite" target="_blank">vite</a>
-- <a href="https://github.com/wangeditor-team/wangEditor" target="_blank">wangeditor</a>
-- <a href="https://github.com/fengyuanchen/cropperjs" target="_blank">cropperjs</a>
-- <a href="https://github.com/davidshimjs/qrcodejs" target="_blank">qrcodejs</a>
-- <a href="https://github.com/crabbly/Print.js" target="_blank">print-js</a>
-- <a href="https://github.com/jbaysolutions/vue-grid-layout" target="_blank">vue-grid-layout</a>
-- <a href="https://github.com/antoniandre/splitpanes" target="_blank">splitpanes</a>
-- <a href="https://github.com/jsplumb/jsplumb" target="_blank">jsplumb</a>
-- <a href="https://github.com/hxj9102/table2excel" target="_blank">js-table2excel</a>
-
-#### 💕 特别感谢
-
-特别感谢老哥们的建议、指导与帮忙。谢谢！
-
-- <a href="https://gitee.com/click33/sa-plus" target="_blank">@省长</a>
-- <a href="https://gitee.com/jskz/Jskz-SpringCloud" target="_blank">@唐参</a>
-- <a href="https://gitee.com/chuange" target="_blank">@川歌</a>
-- @华仔
-
-#### 💌 支持作者
-
-如果觉得框架不错，或者已经在使用了，希望你可以去 <a target="_blank" href="https://github.com/lyt-Top/vue-next-admin">Github</a> 或者
-<a target="_blank" href="https://gitee.com/lyt-top/vue-next-admin">Gitee</a> 帮我点个 ⭐ Star，这将是对我极大的鼓励与支持。
+# 坑:
+    

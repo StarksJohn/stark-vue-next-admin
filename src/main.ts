@@ -16,3 +16,7 @@ directive(app);
 other.elSvg(app);
 
 app.use(pinia).use(router).use(ElementPlus).use(i18n).use(VueGridLayout).mount('#app');
+
+const { VITE_FILE_NAME } = import.meta.env;
+
+console.log('main VITE_FILE_NAME= ',VITE_FILE_NAME)
