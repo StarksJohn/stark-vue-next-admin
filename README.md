@@ -77,4 +77,6 @@ https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/eslint/#eslint
             
 
 # 坑:
+1.  git push origin master 时报错: fatal: unable to access 'https://github.com/StarksJohn/stark-vue-next-admin.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 
+    1. 关  surfshark 
     
