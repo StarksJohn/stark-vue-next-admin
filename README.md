@@ -13,7 +13,14 @@ https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/introduce/
 # 分支说明
 https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/install/#%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81%E5%90%84%E5%88%86%E6%94%AF%E8%AF%B4%E6%98%8E-%E5%90%8E%E7%BB%AD%E5%B0%86%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E5%88%86%E6%94%AF
 1. master (基于 vue3.x、vite、ts、Element plus等，主项目模板)
-2. VUE3_TS:因此项目部署在 https://code.cxaone.cn/stark.zhang/boheAuth 项目,故 此分支用于在 boheAuth 项目里 测试部署代码
+2. VUE3_TS:因此项目部署在 https://code.cxaone.cn/stark.zhang/boheAuth 项目,故 此分支用于在 boheAuth 项目里 测试部署代码, 在 https://github.com/StarksJohn/stark-vue-next-admin 项目里没有此分支,每次 测试部署,都把 stark-vue-next-admin 项目的代码 拷贝到  boheAuth 项目里的 VUE3_TS 分支, .git 文件 不要 拷贝
+
+# 怎么更新主项目的master分支代码到此项目的master
+https://chat.openai.com/share/f38a1565-fe0d-4910-960d-bf49af086f24
+1. git remote add vue-next-admin-master https://github.com/lyt-Top/vue-next-admin.git
+2. git fetch vue-next-admin-master
+3. git checkout master
+4. git merge vue-next-admin-master/master
 
 # 项目搭建
 1. npm install
@@ -32,16 +39,16 @@ https://lyt-top.gitee.io/vue-next-admin-doc-preview/home/eslint/#eslint
     坑: 由于  this.options.parse is not a function  这个报错 暂时无法解决, 故暂停用 eslint
 
 # UAT
-   1. debug:
-        npm run dev:uat     (use env.debug_uat file)
+   1. debug: 当前电脑 node -v  版本改成 16.14, nvm alias default v16.14.0
+      npm run dev:uat     (use env.debug_uat file) ,浏览器访问 http://localhost:8888/
    2. release :
-        本地打包+预览: (成功)
-            https://lyt-top.gitee.io/vue-next-admin-doc-preview/config/build/#%E9%A2%84%E8%A7%88
-            1 根目录 .env.release_uat 文件中的 VITE_PUBLIC_PATH 置空
-            2 npm install -g http-server
-            3 在 package.json 中添加脚本 "serve": "http-server ./dist"
-            4 本地打包 npm run build:uat  (use env.release_uat file)
-            4 项目根目录运行  npm run serve
+     本地打包+预览: (成功)
+         https://lyt-top.gitee.io/vue-next-admin-doc-preview/config/build/#%E9%A2%84%E8%A7%88
+         1. 根目录 .env.release_uat 文件中的 VITE_PUBLIC_PATH 置空
+         2. npm install -g http-server
+         3. 在 package.json 中添加脚本 "serve": "http-server ./dist"
+         4. 本地打包 npm run build:uat  (use env.release_uat file)
+         5. 项目根目录运行  npm run serve
    3. jenkins :在 boheAuth 项目的 VUE3_TS 分支: 
       1. 改 .env.release_uat 文件的 VITE_PUBLIC_PATH 为 "https://uat-boheauth.cxaone.cn/"
       2. 打包: 在 https://jen.cxaone.cn/view/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/job/FrontBuildDockerImage/build?delay=0sec 打包  
